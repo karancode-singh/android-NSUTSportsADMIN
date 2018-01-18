@@ -28,6 +28,7 @@ import java.util.ArrayList;
 public class sportList extends AppCompatActivity implements NetworkStateReceiver.NetworkStateReceiverListener {
 
     private final String DB = "WS2018";
+
     private ArrayList<Entry> entriesPending;
     private ArrayList<Entry> entriesCompleted;
     private ArrayList<String> pKeys;

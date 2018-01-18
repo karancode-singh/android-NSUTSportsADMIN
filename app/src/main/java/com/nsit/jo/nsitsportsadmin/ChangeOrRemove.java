@@ -21,8 +21,9 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-
 public class ChangeOrRemove extends AppCompatActivity {
+
+    private final String DB = "WS2018";
 
     private DatePicker datePicker;
     private Calendar calendar;
@@ -48,7 +49,6 @@ public class ChangeOrRemove extends AppCompatActivity {
     private String time;
     private String key;
     private DatabaseReference mDatabase;
-    private final String DB = "db1";
     private long timeInMilisec;
     private String tag;
 
