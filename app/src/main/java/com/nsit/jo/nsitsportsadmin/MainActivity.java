@@ -22,13 +22,14 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class MainActivity extends Activity {
+
+    private final String DB = "WS2018";
+
     private DatePicker datePicker;
     private Calendar calendar;
     private int year, month, day;
 
     private DatabaseReference mDatabase;
-    private final String DB = "db1";
-
     protected String date = "";
     protected String time = "00:00";
     protected String batch = "1st Year";
