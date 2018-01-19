@@ -23,7 +23,7 @@ import java.util.Date;
 
 public class ChangeOrRemove extends AppCompatActivity {
 
-    private final String DB = "WS2018";
+    private final String DB = GlobalVariables.DB;
 
     private DatePicker datePicker;
     private Calendar calendar;

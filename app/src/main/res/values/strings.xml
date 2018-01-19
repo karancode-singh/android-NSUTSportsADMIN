@@ -20,12 +20,18 @@
 
     <string-array name="sportTypes">
         <item>Football</item>
-        <item>Kabaddi</item>
         <item>Cricket</item>
         <item>Basketball</item>
+        <item>Volleyball</item>
+        <item>Kabaddi</item>
         <item>Badminton</item>
-        <item>TableTennis</item>
+        <item>Kho Kho</item>
         <item>Chess</item>
+        <item>Carrom</item>
+        <item>Powerlifting</item>
+        <item>Armwrestling</item>
+        <item>Lawn Tennis</item>
+        <item>Table Tennis</item>
     </string-array>
 
     <string-array name="sectionTypes">
