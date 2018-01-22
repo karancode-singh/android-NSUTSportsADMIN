@@ -36,7 +36,7 @@ public class addSport extends AppCompatActivity {
         lv.setAdapter(sportListAdapter);
 
         DatabaseReference db= FirebaseDatabase.getInstance().getReference()
-                .child("sportlist");
+                .child(GlobalVariables.sportListDB);
 
         db.addValueEventListener(new ValueEventListener() {
             @Override
@@ -75,7 +75,7 @@ public class addSport extends AppCompatActivity {
                 String m_Text = input.getText().toString();
 
                 FirebaseDatabase.getInstance().getReference()
-                        .child("sportlist")
+                        .child(GlobalVariables.sportListDB)
                         .child(m_Text).setValue(m_Text);
                 dialog.dismiss();
 

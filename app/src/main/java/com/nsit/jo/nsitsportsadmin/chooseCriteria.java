@@ -52,7 +52,7 @@ public class chooseCriteria extends AppCompatActivity {
         spinnerSportCC.setAdapter(spinnerArrayAdapter);
 
         DatabaseReference db= FirebaseDatabase.getInstance().getReference()
-                .child("sportlist");
+                .child(GlobalVariables.sportListDB);
 
         db.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -106,9 +106,10 @@ public class chooseCriteria extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 String m_Text = input.getText().toString();
-                if(m_Text.equals("SahilAdmin001")){
+                if(m_Text.equals("acdc")){
                     //change to add sport activity
                     startActivity(new Intent(chooseCriteria.this,addSport.class));
+                    finish();
                 }else{
                     Toast.makeText(chooseCriteria.this,"Wrong password.",Toast.LENGTH_LONG).show();
                 }
@@ -118,6 +119,11 @@ public class chooseCriteria extends AppCompatActivity {
 
         builder.show();
 
+
+    }
+
+    @Override
+    public void onBackPressed() {
 
     }
 }
