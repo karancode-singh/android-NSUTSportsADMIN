@@ -73,7 +73,9 @@ public class sportList extends AppCompatActivity implements NetworkStateReceiver
         progressBar = (ProgressBar) LayoutInflater.from(this).inflate(R.layout.progress_bar, null);
 
         if (!calledAlready) {
-            FirebaseDatabase.getInstance().setPersistenceEnabled(true);
+            try{
+                FirebaseDatabase.getInstance().setPersistenceEnabled(true);
+            }catch (Exception e){}
             calledAlready = true;
         }
         FirebaseDatabase database = FirebaseDatabase.getInstance();

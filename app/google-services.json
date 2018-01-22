@@ -1,35 +1,43 @@
 {
   "project_info": {
-    "project_number": "44147031246",
-    "firebase_url": "https://nsit-sports.firebaseio.com",
-    "project_id": "nsit-sports",
-    "storage_bucket": "nsit-sports.appspot.com"
+    "project_number": "458641022767",
+    "firebase_url": "https://sportsatnsit-27eb7.firebaseio.com",
+    "project_id": "sportsatnsit-27eb7",
+    "storage_bucket": "sportsatnsit-27eb7.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:44147031246:android:abb6c329aae6ceaa",
+        "mobilesdk_app_id": "1:458641022767:android:5f172c15242604f3",
         "android_client_info": {
-          "package_name": "com.nsit.jo.nsitsports"
+          "package_name": "com.example.aditya.sportsatnsit"
         }
       },
       "oauth_client": [
         {
-          "client_id": "44147031246-75rshrj95l910h91iovk446dcmi034io.apps.googleusercontent.com",
+          "client_id": "458641022767-qhsuuee1oonralmnl498dvi0nfkagkqu.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.nsit.jo.nsitsports",
-            "certificate_hash": "d31f6411ed57d0ec2459699bd49352545f8cbd70"
+            "package_name": "com.example.aditya.sportsatnsit",
+            "certificate_hash": "42a7e00e8f66f01cb7b3ac97d4932c3113c14b84"
           }
         },
         {
-          "client_id": "44147031246-o5a948d8je3tgr2deo6nljuprd7p76bi.apps.googleusercontent.com",
+          "client_id": "458641022767-h2bu27ud8cp8eel85tesd99bjqbe0oes.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.aditya.sportsatnsit",
+            "certificate_hash": "2d2bb107901a1507b58931c802c6d0b178a78925"
+          }
+        },
+        {
+          "client_id": "458641022767-gaa2cagdq7nb2p5hp5omiah5mgieo6jj.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAPS55Awi-7VH8Qhj16QHIWhFsVFCW5tIY"
+          "current_key": "AIzaSyDG6FgdGoGtLA7B5WHGBZBJtiAq11uBEi8"
         }
       ],
       "services": {
@@ -40,7 +48,7 @@
           "status": 2,
           "other_platform_oauth_client": [
             {
-              "client_id": "44147031246-o5a948d8je3tgr2deo6nljuprd7p76bi.apps.googleusercontent.com",
+              "client_id": "458641022767-gaa2cagdq7nb2p5hp5omiah5mgieo6jj.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
@@ -52,28 +60,36 @@
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:44147031246:android:af512585f776869c",
+        "mobilesdk_app_id": "1:458641022767:android:9e43e1b5c49ff666",
         "android_client_info": {
-          "package_name": "com.nsit.jo.nsitsportsadmin"
+          "package_name": "com.example.aditya.scorechange"
         }
       },
       "oauth_client": [
         {
-          "client_id": "44147031246-sk9susp0p8pm0ce9s42ep2gbvpfsbk1k.apps.googleusercontent.com",
+          "client_id": "458641022767-67uvtcnplv2p9o3pp0mad95b2cglm0uv.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.nsit.jo.nsitsportsadmin",
-            "certificate_hash": "d31f6411ed57d0ec2459699bd49352545f8cbd70"
+            "package_name": "com.example.aditya.scorechange",
+            "certificate_hash": "42a7e00e8f66f01cb7b3ac97d4932c3113c14b84"
           }
         },
         {
-          "client_id": "44147031246-o5a948d8je3tgr2deo6nljuprd7p76bi.apps.googleusercontent.com",
+          "client_id": "458641022767-dotvrr71incrr4ip2spa8elnmnq8p16p.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.aditya.scorechange",
+            "certificate_hash": "2d2bb107901a1507b58931c802c6d0b178a78925"
+          }
+        },
+        {
+          "client_id": "458641022767-gaa2cagdq7nb2p5hp5omiah5mgieo6jj.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAPS55Awi-7VH8Qhj16QHIWhFsVFCW5tIY"
+          "current_key": "AIzaSyDG6FgdGoGtLA7B5WHGBZBJtiAq11uBEi8"
         }
       ],
       "services": {
@@ -84,7 +100,95 @@
           "status": 2,
           "other_platform_oauth_client": [
             {
-              "client_id": "44147031246-o5a948d8je3tgr2deo6nljuprd7p76bi.apps.googleusercontent.com",
+              "client_id": "458641022767-gaa2cagdq7nb2p5hp5omiah5mgieo6jj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:458641022767:android:abb6c329aae6ceaa",
+        "android_client_info": {
+          "package_name": "com.nsit.jo.nsitsports"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "458641022767-3ht228g41jlvmkueoeuppss87lavqs7j.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.nsit.jo.nsitsports",
+            "certificate_hash": "42a7e00e8f66f01cb7b3ac97d4932c3113c14b84"
+          }
+        },
+        {
+          "client_id": "458641022767-gaa2cagdq7nb2p5hp5omiah5mgieo6jj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDG6FgdGoGtLA7B5WHGBZBJtiAq11uBEi8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "458641022767-gaa2cagdq7nb2p5hp5omiah5mgieo6jj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:458641022767:android:af512585f776869c",
+        "android_client_info": {
+          "package_name": "com.nsit.jo.nsitsportsadmin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "458641022767-irep4gprgfhdrsnjcl5qsehu7uef7sus.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.nsit.jo.nsitsportsadmin",
+            "certificate_hash": "42a7e00e8f66f01cb7b3ac97d4932c3113c14b84"
+          }
+        },
+        {
+          "client_id": "458641022767-gaa2cagdq7nb2p5hp5omiah5mgieo6jj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDG6FgdGoGtLA7B5WHGBZBJtiAq11uBEi8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "458641022767-gaa2cagdq7nb2p5hp5omiah5mgieo6jj.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

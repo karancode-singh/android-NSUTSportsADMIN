@@ -25,7 +25,8 @@
             android:label="@string/title_activity_choose_criteria"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".sportList" />
-        <activity android:name=".ChangeOrRemove"></activity>
+        <activity android:name=".ChangeOrRemove" />
+        <activity android:name=".addSport"></activity>
     </application>
 
 </manifest>
