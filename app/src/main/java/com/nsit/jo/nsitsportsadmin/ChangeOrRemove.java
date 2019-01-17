@@ -4,6 +4,7 @@ import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.InputType;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -95,27 +96,38 @@ public class ChangeOrRemove extends AppCompatActivity {
         buttonDate.setText(date);
         tv_tag.setText(tag);
 
+        etTimeHH.setInputType(InputType.TYPE_CLASS_NUMBER);
+        etTimeMM.setInputType(InputType.TYPE_CLASS_NUMBER);
+        etScore1.setInputType(InputType.TYPE_CLASS_NUMBER);
+        etScore2.setInputType(InputType.TYPE_CLASS_NUMBER);
+
+
         mDatabase = FirebaseDatabase.getInstance().getReference().child(DB).child(chooseCriteria.selectedYear).child(chooseCriteria.selectedSport).child(key);
         buttonChange.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                Boolean shouldUpdate = false;
                 try {
-                    assignValues();
+                    shouldUpdate = assignValues();
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
-                Entry entry = new Entry(date, time, timeInMilisec, team1, team2, score1, score2, tag);
-                mDatabase.setValue(entry, new DatabaseReference.CompletionListener() {
-                    @Override
-                    public void onComplete(DatabaseError firebaseError, DatabaseReference firebase) {
-                        if (firebaseError != null) {
-                            Toast.makeText(ChangeOrRemove.this, "Match entry could not be updated. Contact developers if problem persists.", Toast.LENGTH_LONG).show();
-                            Log.e("Firebase updating error", firebaseError.getMessage());
-                        } else {
-                            Toast.makeText(ChangeOrRemove.this, "Match entry updated successfully", Toast.LENGTH_SHORT).show();
+                if(shouldUpdate) {
+                    Entry entry = new Entry(date, time, timeInMilisec, team1, team2, score1, score2, tag);
+                    mDatabase.setValue(entry, new DatabaseReference.CompletionListener() {
+                        @Override
+                        public void onComplete(DatabaseError firebaseError, DatabaseReference firebase) {
+                            if (firebaseError != null) {
+                                Toast.makeText(ChangeOrRemove.this, "Match entry could not be updated. Contact developers if problem persists.", Toast.LENGTH_LONG).show();
+                                Log.e("Firebase updating error", firebaseError.getMessage());
+                            } else {
+                                Toast.makeText(ChangeOrRemove.this, "Match entry updated successfully", Toast.LENGTH_SHORT).show();
+                            }
                         }
-                    }
-                });
-                finish();
+                    });
+                    finish();
+                }
+                else
+                    Toast.makeText(ChangeOrRemove.this, "Some entry is not correct. Check and confirm all entries are correct.", Toast.LENGTH_LONG).show();
             }
         });
 
@@ -166,7 +178,15 @@ public class ChangeOrRemove extends AppCompatActivity {
                 }
             };
 
-    private void assignValues() throws ParseException {
+    private Boolean assignValues() throws ParseException {
+            if (
+                    !etTimeHH.getText().toString().matches("\\d+")||
+                    !etTimeMM.getText().toString().matches("\\d+")||
+                    !etScore1.getText().toString().matches("-?\\d+")||
+                    !etScore2.getText().toString().matches("-?\\d+")
+            )
+                return false;
+
         if (etTimeHH.getText().toString().equals("") && etTimeMM.getText().toString().equals(""))
             time = "00:00";
         else if (etTimeHH.getText().toString().equals("") && !etTimeMM.getText().toString().equals(""))
@@ -184,6 +204,7 @@ public class ChangeOrRemove extends AppCompatActivity {
             score1 = etScore1.getText().toString();
             score2 = "0";
         } else if (!etScore1.getText().toString().equals("") && !etScore2.getText().toString().equals("")) {
+
             score1 = etScore1.getText().toString();
             score2 = etScore2.getText().toString();
         }
@@ -193,5 +214,6 @@ public class ChangeOrRemove extends AppCompatActivity {
         Date dT = format.parse(dateTime);
         timeInMilisec = dT.getTime();
         tag = tv_tag.getText().toString();
+        return true;
     }
 }

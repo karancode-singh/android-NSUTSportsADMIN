@@ -112,6 +112,7 @@ public class MainActivity extends Activity {
 
 
     public void goButton(View view) throws ParseException {
+        Boolean shouldUpdate = false;
         if (date.equals("")) {
             Toast.makeText(MainActivity.this, "No date selected", Toast.LENGTH_SHORT).show();
             return;
@@ -122,24 +123,35 @@ public class MainActivity extends Activity {
             Toast.makeText(MainActivity.this, "Teams can't be same", Toast.LENGTH_SHORT).show();
             return;
         }
-        assignValues();
-        Entry newEntry = new Entry(date, time, timeInMilisec, team1, team2, score1, score2, tag);
-        mDatabase = FirebaseDatabase.getInstance().getReference().child(DB).child(batch).child(sport);
-        mDatabase.push().setValue(newEntry, new DatabaseReference.CompletionListener() {
-            @Override
-            public void onComplete(DatabaseError firebaseError, DatabaseReference firebase) {
-                if (firebaseError != null) {
-                    Toast.makeText(MainActivity.this, "Match entry could not be added. Contact developers if problem persists.", Toast.LENGTH_LONG).show();
-                    Log.e("Firebase writing error", firebaseError.getMessage());
-                } else {
-                    Toast.makeText(MainActivity.this, "Match entry added successfully", Toast.LENGTH_SHORT).show();
+        shouldUpdate = assignValues();
+        if(shouldUpdate) {
+            Entry newEntry = new Entry(date, time, timeInMilisec, team1, team2, score1, score2, tag);
+            mDatabase = FirebaseDatabase.getInstance().getReference().child(DB).child(batch).child(sport);
+            mDatabase.push().setValue(newEntry, new DatabaseReference.CompletionListener() {
+                @Override
+                public void onComplete(DatabaseError firebaseError, DatabaseReference firebase) {
+                    if (firebaseError != null) {
+                        Toast.makeText(MainActivity.this, "Match entry could not be added. Contact developers if problem persists.", Toast.LENGTH_LONG).show();
+                        Log.e("Firebase writing error", firebaseError.getMessage());
+                    } else {
+                        Toast.makeText(MainActivity.this, "Match entry added successfully", Toast.LENGTH_SHORT).show();
+                    }
                 }
-            }
-        });
-        finish();
+            });
+            finish();
+        }
+        else
+            Toast.makeText(MainActivity.this, "Some entry is not correct. Check and confirm all entries are correct.", Toast.LENGTH_LONG).show();
     }
 
-    private void assignValues() throws ParseException {
+    private Boolean assignValues() throws ParseException {
+        if (
+                !timeHH_tv.getText().toString().matches("\\d+")||
+                        !timeMM_tv.getText().toString().matches("\\d+")||
+                        !score_tv1.getText().toString().matches("-?\\d+")||
+                        !score_tv2.getText().toString().matches("-?\\d+")
+        )
+            return false;
         batch = chooseCriteria.selectedYear;
         sport = chooseCriteria.selectedSport;
 
@@ -171,6 +183,6 @@ public class MainActivity extends Activity {
         tag = tv_tag.getText().toString();
 //        String TAG = "log";
 //        Log.d(TAG, time);
-
+        return true;
     }
 }
