@@ -145,13 +145,13 @@ public class MainActivity extends Activity {
     }
 
     private Boolean assignValues() throws ParseException {
-        if (
-                !timeHH_tv.getText().toString().matches("\\d+")||
-                        !timeMM_tv.getText().toString().matches("\\d+")||
-                        !score_tv1.getText().toString().matches("-?\\d+")||
-                        !score_tv2.getText().toString().matches("-?\\d+")
-        )
-            return false;
+//        if (
+//                !timeHH_tv.getText().toString().matches("\\d+")||
+//                        !timeMM_tv.getText().toString().matches("\\d+")||
+//                        !score_tv1.getText().toString().matches("-?\\d+")||
+//                        !score_tv2.getText().toString().matches("-?\\d+")
+//        )
+//            return false;
         batch = chooseCriteria.selectedYear;
         sport = chooseCriteria.selectedSport;
 

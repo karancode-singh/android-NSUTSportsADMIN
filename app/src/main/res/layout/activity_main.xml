@@ -122,7 +122,7 @@
 
         <EditText
             android:id="@+id/tv_score1"
-            android:inputType="number"
+            android:inputType="numberSigned"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
@@ -135,7 +135,7 @@
 
         <EditText
             android:id="@+id/tv_score2"
-            android:inputType="number"
+            android:inputType="numberSigned"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"

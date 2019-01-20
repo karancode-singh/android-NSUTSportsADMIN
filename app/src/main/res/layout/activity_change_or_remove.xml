@@ -107,7 +107,7 @@
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
             android:layout_marginTop="15dp"
-            android:inputType="number"
+            android:inputType="numberDecimal|numberSigned"
             android:layout_weight="1"
             android:textAlignment="center"
             android:hint="Score1" />
@@ -115,7 +115,7 @@
         <EditText
             android:id="@+id/etScore2"
             android:layout_width="0dp"
-            android:inputType="number"
+            android:inputType="numberDecimal|numberSigned"
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
             android:layout_marginLeft="15dp"

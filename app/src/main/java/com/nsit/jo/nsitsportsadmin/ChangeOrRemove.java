@@ -96,10 +96,10 @@ public class ChangeOrRemove extends AppCompatActivity {
         buttonDate.setText(date);
         tv_tag.setText(tag);
 
-        etTimeHH.setInputType(InputType.TYPE_CLASS_NUMBER);
-        etTimeMM.setInputType(InputType.TYPE_CLASS_NUMBER);
-        etScore1.setInputType(InputType.TYPE_CLASS_NUMBER);
-        etScore2.setInputType(InputType.TYPE_CLASS_NUMBER);
+//        etTimeHH.setInputType(InputType.TYPE_CLASS_NUMBER);
+//        etTimeMM.setInputType(InputType.TYPE_CLASS_NUMBER);
+//        etScore1.setInputType(InputType.TYPE_CLASS_NUMBER);
+//        etScore2.setInputType(InputType.TYPE_CLASS_NUMBER);
 
 
         mDatabase = FirebaseDatabase.getInstance().getReference().child(DB).child(chooseCriteria.selectedYear).child(chooseCriteria.selectedSport).child(key);
@@ -179,13 +179,13 @@ public class ChangeOrRemove extends AppCompatActivity {
             };
 
     private Boolean assignValues() throws ParseException {
-            if (
-                    !etTimeHH.getText().toString().matches("\\d+")||
-                    !etTimeMM.getText().toString().matches("\\d+")||
-                    !etScore1.getText().toString().matches("-?\\d+")||
-                    !etScore2.getText().toString().matches("-?\\d+")
-            )
-                return false;
+//        if (
+//                !etTimeHH.getText().toString().matches("\\d+")||
+//                !etTimeMM.getText().toString().matches("\\d+")||
+//                !etScore1.getText().toString().matches("-?\\d+")||
+//                !etScore2.getText().toString().matches("-?\\d+")
+//        )
+//            return false;
 
         if (etTimeHH.getText().toString().equals("") && etTimeMM.getText().toString().equals(""))
             time = "00:00";
