@@ -3,13 +3,17 @@ package com.nsit.jo.nsitsportsadmin;
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.app.TimePickerDialog;
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseError;
@@ -21,14 +25,13 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-public class MainActivity extends Activity {
+public class MainActivity extends AppCompatActivity implements TimePickerDialog.OnTimeSetListener{
 
     private final String DB = GlobalVariables.DB;
 
     private DatePicker datePicker;
     private Calendar calendar;
     private int year, month, day;
-
     private DatabaseReference mDatabase;
     protected String date = "";
     protected String time = "00:00";
@@ -42,9 +45,7 @@ public class MainActivity extends Activity {
     Date dateTime;
     long timeInMilisec;
 
-
-    EditText timeHH_tv;
-    EditText timeMM_tv;
+    TextView time_tv;
     Spinner spinnerBranch1;
     Spinner spinnerBranch2;
     Spinner spinnerSection1;
@@ -63,8 +64,14 @@ public class MainActivity extends Activity {
         calendar = Calendar.getInstance();
         year = calendar.get(Calendar.YEAR);
 
-        timeHH_tv = (EditText) findViewById(R.id.tv_timeHH);
-        timeMM_tv = (EditText) findViewById(R.id.tv_timeMM);
+        time_tv = (TextView) findViewById(R.id.timePicker);
+        time_tv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DialogFragment timePicker = new TimePickerFrag();
+                timePicker.show(getSupportFragmentManager(),"sfa");
+            }
+        });
         spinnerBranch1 = (Spinner) findViewById(R.id.spinnerBranch1);
         spinnerSection1 = (Spinner) findViewById(R.id.spinnerSection1);
         spinnerBranch2 = (Spinner) findViewById(R.id.spinnerBranch2);
@@ -78,6 +85,18 @@ public class MainActivity extends Activity {
 
         month = calendar.get(Calendar.MONTH);
         day = calendar.get(Calendar.DAY_OF_MONTH);
+    }
+
+    @Override
+    public void onTimeSet(TimePicker view, int hour, int minute) {
+        String hh = ""+hour;
+        String mm = ""+minute;
+        if(hour<10)
+            hh = "0"+hh;
+        if(minute<10)
+            mm = "0"+mm;
+        time = hh+":"+mm;
+        time_tv.setText(time);
     }
 
     @SuppressWarnings("deprecation")
@@ -155,14 +174,14 @@ public class MainActivity extends Activity {
         batch = chooseCriteria.selectedYear;
         sport = chooseCriteria.selectedSport;
 
-        if (timeHH_tv.getText().toString().equals("") && timeMM_tv.getText().toString().equals(""))
-            time = "00:00";
-        else if (timeHH_tv.getText().toString().equals("") && !timeMM_tv.getText().toString().equals(""))
-            time = "00:" + timeMM_tv.getText().toString();
-        else if (!timeHH_tv.getText().toString().equals("") && timeMM_tv.getText().toString().equals(""))
-            time = timeHH_tv.getText().toString() + ":00";
-        else
-            time = timeHH_tv.getText().toString() + ":" + timeMM_tv.getText().toString();
+//        if (timeHH_tv.getText().toString().equals("") && timeMM_tv.getText().toString().equals(""))
+//            time = "00:00";
+//        else if (timeHH_tv.getText().toString().equals("") && !timeMM_tv.getText().toString().equals(""))
+//            time = "00:" + timeMM_tv.getText().toString();
+//        else if (!timeHH_tv.getText().toString().equals("") && timeMM_tv.getText().toString().equals(""))
+//            time = timeHH_tv.getText().toString() + ":00";
+//        else
+//            time = timeHH_tv.getText().toString() + ":" + timeMM_tv.getText().toString();
 
 
         if (score_tv1.getText().toString().equals("") && !score_tv2.getText().toString().equals("")) {

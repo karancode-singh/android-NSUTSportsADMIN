@@ -2,7 +2,9 @@ package com.nsit.jo.nsitsportsadmin;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.app.TimePickerDialog;
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.text.InputType;
 import android.util.Log;
@@ -11,6 +13,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseError;
@@ -22,7 +25,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-public class ChangeOrRemove extends AppCompatActivity {
+public class ChangeOrRemove extends AppCompatActivity implements TimePickerDialog.OnTimeSetListener{
 
     private final String DB = GlobalVariables.DB;
 
@@ -52,12 +55,23 @@ public class ChangeOrRemove extends AppCompatActivity {
     private DatabaseReference mDatabase;
     private long timeInMilisec;
     private String tag;
+    private TextView time_tv;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_change_or_remove);
+
+        time_tv = (TextView) findViewById(R.id.timePicker);
+        time_tv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DialogFragment timePicker = new TimePickerFrag();
+                timePicker.show(getSupportFragmentManager(),"sfa");
+            }
+        });
+
         team1 = getIntent().getStringExtra("team1");
         team2 = getIntent().getStringExtra("team2");
         score1 = getIntent().getStringExtra("score1");
@@ -68,8 +82,6 @@ public class ChangeOrRemove extends AppCompatActivity {
         tag = getIntent().getStringExtra("tag");
         String[] timeArr = time.split(":");
 
-        etTimeHH = (EditText) findViewById(R.id.etTimeHH);
-        etTimeMM = (EditText) findViewById(R.id.etTimeMM);
         tvTeam1 = (TextView) findViewById(R.id.tvTeam1);
         tvTeam2 = (TextView) findViewById(R.id.tvTeam2);
         etScore1 = (EditText) findViewById(R.id.etScore1);
@@ -87,19 +99,13 @@ public class ChangeOrRemove extends AppCompatActivity {
         month = calendar.get(Calendar.MONTH);
         day = calendar.get(Calendar.DAY_OF_MONTH);
 
-        etTimeHH.setText(timeArr[0]);
-        etTimeMM.setText(timeArr[1]);
+        time_tv.setText(timeArr[0]+":"+timeArr[1]);
         tvTeam1.setText(team1);
         tvTeam2.setText(team2);
         etScore1.setText(score1);
         etScore2.setText(score2);
         buttonDate.setText(date);
         tv_tag.setText(tag);
-
-//        etTimeHH.setInputType(InputType.TYPE_CLASS_NUMBER);
-//        etTimeMM.setInputType(InputType.TYPE_CLASS_NUMBER);
-//        etScore1.setInputType(InputType.TYPE_CLASS_NUMBER);
-//        etScore2.setInputType(InputType.TYPE_CLASS_NUMBER);
 
 
         mDatabase = FirebaseDatabase.getInstance().getReference().child(DB).child(chooseCriteria.selectedYear).child(chooseCriteria.selectedSport).child(key);
@@ -149,6 +155,18 @@ public class ChangeOrRemove extends AppCompatActivity {
         });
     }
 
+    @Override
+    public void onTimeSet(TimePicker view, int hour, int minute) {
+        String hh = ""+hour;
+        String mm = ""+minute;
+        if(hour<10)
+            hh = "0"+hh;
+        if(minute<10)
+            mm = "0"+mm;
+        time = hh+":"+mm;
+        time_tv.setText(time);
+    }
+
     @SuppressWarnings("deprecation")
     public void setDateAgain(View view) {
         showDialog(999);
@@ -187,14 +205,14 @@ public class ChangeOrRemove extends AppCompatActivity {
 //        )
 //            return false;
 
-        if (etTimeHH.getText().toString().equals("") && etTimeMM.getText().toString().equals(""))
-            time = "00:00";
-        else if (etTimeHH.getText().toString().equals("") && !etTimeMM.getText().toString().equals(""))
-            time = "00:" + etTimeMM.getText().toString();
-        else if (!etTimeHH.getText().toString().equals("") && etTimeMM.getText().toString().equals(""))
-            time = etTimeHH.getText().toString() + ":00";
-        else
-            time = etTimeHH.getText().toString() + ":" + etTimeMM.getText().toString();
+//        if (etTimeHH.getText().toString().equals("") && etTimeMM.getText().toString().equals(""))
+//            time = "00:00";
+//        else if (etTimeHH.getText().toString().equals("") && !etTimeMM.getText().toString().equals(""))
+//            time = "00:" + etTimeMM.getText().toString();
+//        else if (!etTimeHH.getText().toString().equals("") && etTimeMM.getText().toString().equals(""))
+//            time = etTimeHH.getText().toString() + ":00";
+//        else
+//            time = etTimeHH.getText().toString() + ":" + etTimeMM.getText().toString();
 
 
         if (etScore1.getText().toString().equals("") && !etScore2.getText().toString().equals("")) {

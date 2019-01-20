@@ -8,66 +8,39 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/textSportAdd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textSportAdd"
-        android:textColor="@android:color/background_light"
-        android:paddingBottom="10dp"
         android:layout_marginBottom="10dp"
         android:paddingTop="10dp"
-        android:background="@color/colorPrimaryDark"
-        android:textSize="22sp"
+        android:paddingBottom="10dp"
+        android:text="Sport"
         android:textAlignment="center"
-        android:text="Sport" />
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="23sp"
+        android:textStyle="bold" />
 
     <TextView
+        android:layout_margin="15dp"
         android:id="@+id/button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="setDate"
-        android:text="Set date by clicking here"
-        android:textSize="20dp" />
+        android:text="set DATE by clicking here"
+        android:textSize="19sp" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:layout_margin="15dp"
+        android:id="@+id/timePicker"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="horizontal">
+        android:text="set TIME by clicking here"
+        android:textSize="19sp" />
 
-        <EditText
-            android:id="@+id/tv_timeHH"
-            android:layout_width="0dp"
-            android:inputType="number"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/spinnerSport"
-            android:layout_margin="15dp"
-            android:layout_weight="2"
-            android:textAlignment="center"
-            android:hint="HH" />
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text=":"
-            android:textAlignment="center"
-            android:textSize="35sp" />
-
-        <EditText
-            android:id="@+id/tv_timeMM"
-            android:inputType="number"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/spinnerSport"
-            android:layout_margin="15dp"
-            android:layout_weight="2"
-            android:textAlignment="center"
-            android:hint="MM" />
-    </LinearLayout>
 
     <LinearLayout
+        android:layout_margin="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
@@ -92,6 +65,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:layout_margin="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
@@ -116,6 +90,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:layout_margin="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
