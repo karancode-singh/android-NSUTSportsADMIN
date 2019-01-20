@@ -102,8 +102,10 @@ public class ChangeOrRemove extends AppCompatActivity implements TimePickerDialo
         time_tv.setText(timeArr[0]+":"+timeArr[1]);
         tvTeam1.setText(team1);
         tvTeam2.setText(team2);
-        etScore1.setText(score1);
-        etScore2.setText(score2);
+        if(!(score1.equals("-1")||score2.equals("-1"))) {
+            etScore1.setText(score1);
+            etScore2.setText(score2);
+        }
         buttonDate.setText(date);
         tv_tag.setText(tag);
 
