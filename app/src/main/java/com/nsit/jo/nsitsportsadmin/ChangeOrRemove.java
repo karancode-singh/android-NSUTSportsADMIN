@@ -216,15 +216,16 @@ public class ChangeOrRemove extends AppCompatActivity implements TimePickerDialo
 //        else
 //            time = etTimeHH.getText().toString() + ":" + etTimeMM.getText().toString();
 
-
-        if (etScore1.getText().toString().equals("") && !etScore2.getText().toString().equals("")) {
+        if (etScore1.getText().toString().equals("") && etScore2.getText().toString().equals("")) {
+            score1 = "-1";
+            score2 = "-1";
+        }else if (etScore1.getText().toString().equals("") && !etScore2.getText().toString().equals("")) {
             score1 = "0";
             score2 = etScore2.getText().toString();
         } else if (!etScore1.getText().toString().equals("") && etScore2.getText().toString().equals("")) {
             score1 = etScore1.getText().toString();
             score2 = "0";
         } else if (!etScore1.getText().toString().equals("") && !etScore2.getText().toString().equals("")) {
-
             score1 = etScore1.getText().toString();
             score2 = etScore2.getText().toString();
         }
